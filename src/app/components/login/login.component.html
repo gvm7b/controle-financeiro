@@ -1,0 +1,38 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-2x1 shadow-md w-full max-w-sm">
+        <h2 class="text-2x1 font-bold mb-6 text-center">Login</h2>
+
+
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="mb-4">
+                <label class="block mb-1">Email</label>
+                <input 
+                    type="email"
+                    name="email"
+                    [(ngModel)]="email"
+                    required
+                    class="w-full p-inputtext p-component p-input-filled"
+                />
+            </div>
+
+            <div class="mb-4">
+                <label class="block mb-1">Senha</label>
+                <input
+                    type="password"
+                    name="senha"
+                    [(ngModel)]="senha"
+                    required
+                    class="w-full p-inputtext p-component p-input-filled"
+                />
+            </div>
+
+            <button
+                pButton
+                type="submit"
+                label="Entrar"
+                class="w-full"
+                [disabled]="!loginForm.form.valid"
+            ></button>
+        </form>
+    </div>
+</div>
