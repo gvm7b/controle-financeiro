@@ -1,10 +1,14 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { MessageService } from 'primeng/api';
 import Aura from '@primeng/themes/aura';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+
+import { FormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +23,11 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    importProvidersFrom(
+      FormsModule,
+      InputTextModule,
+      ButtonModule
+    ),
     MessageService
   ]
 };

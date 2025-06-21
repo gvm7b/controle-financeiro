@@ -17,7 +17,7 @@ export class LoginComponent {
   login() {
     if(this.email === 'admin@gmail.com' && this.senha === '1234'){
       localStorage.setItem('usuario', JSON.stringify({ email: this.email }));
-      this.router.navigate(['/home']);
+      this.router.navigate(['/gastos']);
 
     } else {
       alert('Usuario não existe!!!');

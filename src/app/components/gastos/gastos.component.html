@@ -1,0 +1,57 @@
+<div class="flex h-screen">
+  <aside class="w-60 bg-gray-800 text-white p-5">
+    <h2 class="text-xl font-bold mb-6">Dashboard</h2>
+    <ul class="space-y-3">
+      <li><a href="#" class="hover:underline">Visão geral</a></li>
+      <li><a href="#" class="hover:underline">Configurações</a></li>
+    </ul>
+  </aside>
+
+  <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+    <h1 class="text-2xl font-bold mb-6">Controle de Gastos</h1>
+
+    <div class="bg-white p-4 rounded-lg shadow mb-6">
+      <h2 class="text-lg font-semibold mb-3">Adicionar Gasto</h2>
+      <form (ngSubmit)="adicionarGasto()" #form="ngForm" class="grid gap-4 md:grid-cols-2">
+        <input
+          type="text"
+          name="descricao"
+          [(ngModel)]="descricao"
+          required
+          placeholder="Descrição"
+          class="p-inputtext p-component w-full"
+        />
+
+        <input
+          type="number"
+          name="valor"
+          [(ngModel)]="valor"
+          required
+          placeholder="Valor (R$)"
+          class="p-inputtext p-component w-full"
+        />
+
+        <button
+          type="submit"
+          pButton
+          label="Adicionar"
+          class="md:col-span-2"
+          [disabled]="!form.form.valid"
+        ></button>
+      </form>
+    </div>
+
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h2 class="text-lg font-semibold mb-4">Gastos cadastrados</h2>
+      <ul class="divide-y divide-gray-200">
+        <li
+          *ngFor="let gasto of gastos(); index as i"
+          class="py-2 flex justify-between items-center"
+        >
+          <span>{{ gasto.descricao }} - R$ {{ gasto.valor.toFixed(2) }}</span>
+          <button class="text-red-600 hover:underline" (click)="removerGasto(i)">Remover</button>
+        </li>
+      </ul>
+    </div>
+  </main>
+</div>
