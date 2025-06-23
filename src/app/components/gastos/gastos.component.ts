@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class GastosComponent {
 
+
   tipoGasto = signal<string>(''); 
   valor = signal<number | null>(null); 
   motivo = signal<{ tipo: string; valor: number }[]>([]);  
@@ -23,11 +24,12 @@ export class GastosComponent {
     'Transporte',
     'Alimentação',
     'Cartão de Crédito',
-    'Contas'
+    'Contas',
+    'Outros'
   ]);
 
 
-  constructor() {
+  constructor(private router: Router) {
     const dadosSalvos = localStorage.getItem('gastos');
     if (dadosSalvos) {
       try {
@@ -63,6 +65,8 @@ export class GastosComponent {
   removerGasto(index: number) {
     this.motivo.update(motivo => motivo.filter((_, i) => i !== index));
   }
+
+  
 }
 
 
