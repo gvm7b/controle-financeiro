@@ -1,9 +1,9 @@
 <div class="flex h-screen">
   <aside class="w-60 bg-gray-800 text-white p-5">
-    <h2 class="text-xl font-bold mb-6">Dashboard</h2>
+    <h2 class="text-xl font-bold mb-6">Menu</h2>
     <ul class="space-y-3">
-      <li><a href="#" class="hover:underline">Visão geral</a></li>
-      <li><a href="#" class="hover:underline">Configurações</a></li>
+      <li><a routerLink="/gastos" class="hover:underline cursor-pointer">Gastos</a></li>
+      <li><a routerLink="/dashboard" class="hover:underline cursor-pointer">Dashboard</a></li>
     </ul>
   </aside>
 
@@ -13,22 +13,23 @@
     <div class="bg-white p-4 rounded-lg shadow mb-6">
       <h2 class="text-lg font-semibold mb-3">Adicionar Gasto</h2>
       <form (ngSubmit)="adicionarGasto()" #form="ngForm" class="grid gap-4 md:grid-cols-2">
-        <input
+        <p-select
           type="text"
-          name="descricao"
-          [(ngModel)]="descricao"
-          required
-          placeholder="Descrição"
+          name="motivo"
+          [(ngModel)]="tipoGasto"
+          [options] = "tiposDeGasto()"
+          placeholder="Motivo"
           class="p-inputtext p-component w-full"
         />
 
-        <input
-          type="number"
+        <p-inputnumber
           name="valor"
           [(ngModel)]="valor"
+          mode="currency"
+          currency="BRL"
+          locale="pt-BR"
           required
           placeholder="Valor (R$)"
-          class="p-inputtext p-component w-full"
         />
 
         <button
@@ -45,10 +46,10 @@
       <h2 class="text-lg font-semibold mb-4">Gastos cadastrados</h2>
       <ul class="divide-y divide-gray-200">
         <li
-          *ngFor="let gasto of gastos(); index as i"
+          *ngFor="let motivo of motivo(); index as i"
           class="py-2 flex justify-between items-center"
         >
-          <span>{{ gasto.descricao }} - R$ {{ gasto.valor.toFixed(2) }}</span>
+          <span>{{ motivo.tipo }} - R$ {{ motivo.valor.toFixed(2) }}</span>
           <button class="text-red-600 hover:underline" (click)="removerGasto(i)">Remover</button>
         </li>
       </ul>
