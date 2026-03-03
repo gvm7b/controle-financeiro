@@ -1,21 +1,36 @@
-## Base Angular Project - Financial Control
-This project serves as a starting point for students to develop a financial control application using Angular.  
-### Project Overview
-This is a base Angular project that provides the foundational structure for building a financial control application. It includes the basic setup of an Angular project with the necessary configurations to start development.
+# 💰 Sistema de Controle de Gastos
 
-### Setup
-1. Clone the repository
-2. Install dependencies: ``npm install`` 
+Este projeto consiste em uma aplicação web para gerenciamento de gastos pessoais, desenvolvida com foco em organização financeira e visualização de dados.
 
-### Pre-configured Libraries
-This project comes with several UI libraries pre-configured:
+A aplicação permite o cadastro, acompanhamento e análise de despesas, utilizando gráficos e uma interface interativa para facilitar o controle financeiro do usuário.
 
-- **[PrimeNG](https://primeng.org/)**: A rich set of UI components for Angular
-- **[PrimeIcons](https://primeng.org/icons#list)**: Icon library for use with PrimeNG components
-- **[PrimeFlex](https://primeflex.org/)**: Lightweight responsive CSS utility library based on FlexBox
-- **[TailwindCSS](https://tailwindcss.com/)**: Utility-first CSS framework for rapid UI development
+
+## 🚀 Tecnologias Utilizadas
+
+- Angular
+- TypeScript
+- Tailwind CSS
+- PrimeNG
+- JavaScript
+
+
+## 📌 Funcionalidades
+
+- Cadastro de gastos
+- Listagem de despesas
+- Edição e exclusão de registros
+- Dashboard com gráficos de gastos
+- Filtro por categorias
+- Interface responsiva
+
 
 ### Development Server
-Run the development server: ``npm start``
+Execute o servidor de desenvolvimento: ``npm start``
 
-Navigate to http://localhost:4200/ in your browser. The application will automatically reload if you change any of the source files.
+Navegue até http://localhost:4200/ no seu navegador. A aplicação será recarregada automaticamente se alterar qualquer um dos arquivos de origem.
+
+
+## 👨‍💻 Autor
+
+Desenvolvido por Guilherme Victor  
+Estudante de Engenharia de Software
